@@ -1,0 +1,51 @@
+---
+// src/pages/index.astro
+import { getRecords } from '../airtable.js';
+
+const records = await getRecords('Roster');
+---
+
+<html>
+  <head>
+    <title>AirTable and Astro</title>
+  </head>
+  <body>
+    <h1>Records from AirTable</h1>
+    <ul>
+      {records.map(record => (
+        <li style={`background:${record.fields.color}`}>
+			<blockquote>{record.fields.quote}</blockquote>
+
+			
+			<h1>{record.fields.name}</h1>
+
+			<img src={record.fields.pic.map( attachment => (
+				attachment.thumbnails.small.url
+			))} /> 
+			
+			<p>This emoji best describes me: {record.fields.emoji}</p>
+			<p>I'm weird because: {record.fields.weird}</p>
+			<p>My superpower is: {record.fields.superpower}</p>
+			<p>My karaoke jame is: {record.fields.karaoke}</p>
+			
+			<h2>Favorites</h2>
+			<p>{record.fields.color}</p>
+			<p>{record.fields.software}</p>
+			<p>{record.fields.character}</p>
+			<p>{record.fields.musicalArtist}</p>
+			<p>{record.fields.comfortFood}</p>
+			</li>
+		))}
+    </ul>
+</body>
+</html>
+
+
+<!-- 
+	
+	<img src="{record.fields.pic}" alt="{record.fields.name}">
+
+	
+	patwWtdtncXUgISCO.c806beabaaaf7a2f53736b72ce5d7a48cf57db4ec8a64c2da7491d872e80153f
+
+  -->
