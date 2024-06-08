@@ -18,10 +18,10 @@ const records = await getRecords('Roster');
 
 			
 			<h1>{record.fields.name}</h1>
-
+			
 			<img src={record.fields.pic.map( attachment => (
-				attachment.thumbnails.small.url
-			))} /> 
+				attachment.thumbnails.full.url
+			))} />
 			
 			<p>This emoji best describes me: {record.fields.emoji}</p>
 			<p>I'm weird because: {record.fields.weird}</p>
