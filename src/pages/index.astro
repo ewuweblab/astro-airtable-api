@@ -2,50 +2,68 @@
 // src/pages/index.astro
 import { getRecords } from '../airtable.js';
 
+// get stylesheets
+import '../styles/rosterTemplate.css';
+import '../styles/appStyling.css';
+
+
 const records = await getRecords('Roster');
 ---
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">	
   <head>
     <title>AirTable and Astro</title>
   </head>
   <body>
     <h1>Records from AirTable</h1>
-    <ul>
-      {records.map(record => (
-        <li style={`background:${record.fields.color}`}>
-			<blockquote>{record.fields.quote}</blockquote>
+    
+	<!-- Container -->
+	<main>
 
-			
-			<h1>{record.fields.name}</h1>
-			
-			<img src={record.fields.pic.map( attachment => (
+		<!-- Each record template -->
+		{records.map(record => (
+
+		<figure class="card"
+				style={`border-color:${record.fields.color}`}>
+	  
+	  		<img src={record.fields.pic.map( attachment => (
 				attachment.thumbnails.full.url
 			))} />
-			
-			<p>This emoji best describes me: {record.fields.emoji}</p>
-			<p>I'm weird because: {record.fields.weird}</p>
+
+		  <blockquote>
+			{record.fields.quote}
+		  </blockquote>
+	  
+		  <figcaption>
+	  
+			<h1>{record.fields.name}</h1>
+	  
+			<p>This emjoi best desribes me: {record.fields.emoji}</p>
+			<p>How am I weird? {record.fields.weird}</p>
 			<p>My superpower is: {record.fields.superpower}</p>
-			<p>My karaoke jame is: {record.fields.karaoke}</p>
-			
+			<p>My karaoke jam is: {record.fields.karaoke}</p>
+	  
 			<h2>Favorites</h2>
-			<p>{record.fields.color}</p>
-			<p>{record.fields.software}</p>
-			<p>{record.fields.character}</p>
-			<p>{record.fields.musicalArtist}</p>
-			<p>{record.fields.comfortFood}</p>
-			</li>
+			<ul>
+			  <li>CSS color name: {record.fields.color}</li>
+			  <li>Software Tool: {record.fields.software}</li>
+			  <li>Fictional Character: {record.fields.character}</li>
+			  <li>Musical Artist: {record.fields.musicalArtist}</li>
+			  <li>Comfort Food: {record.fields.comfortFood}</li>
+			</ul>
+	  
+		  </figcaption>
+		</figure>
+	
 		))}
+	  </main>
+
+		
     </ul>
 </body>
 </html>
-
-
-<!-- 
-	
-	<img src="{record.fields.pic}" alt="{record.fields.name}">
-
-	
-	patwWtdtncXUgISCO.c806beabaaaf7a2f53736b72ce5d7a48cf57db4ec8a64c2da7491d872e80153f
-
-  -->

@@ -1,0 +1,46 @@
+/* Styling for Multi Card Student Roster */
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  figure {
+    margin: 0;
+  }
+  
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+blockquote {
+    text-align: center;
+}
+
+  main {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  /* 
+      The element's width will never be less than 40ch.
+      It will ideally be 25% of its parent's width.
+      It will never be more than 100% of its parent's width.*/
+  .card {
+    width: clamp(40ch, calc(1 / 4 * 100%), 100%);
+    min-width: 40ch;
+    border: 0.5rem solid black;
+  }
+  
+  .card figcaption {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem 1rem;
+  }
+  
