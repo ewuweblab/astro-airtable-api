@@ -34,9 +34,7 @@ const records = await getRecords('Roster');
 		<figure class="card"
 				style={`border-color:${record.fields.color}`}>
 	  
-	  		<img src={record.fields.pic.map( attachment => (
-				attachment.thumbnails.full.url
-			))} />
+	  		<img src={record.fields.urlimage}/>
 
 		  <blockquote>
 			{record.fields.quote}
