@@ -29,12 +29,12 @@ blockquote {
   }
   
   /* 
-      The element's width will never be less than 40ch.
+      The element's width will never be less than 30ch.
       It will ideally be 25% of its parent's width.
       It will never be more than 100% of its parent's width.*/
   .card {
-    width: clamp(40ch, calc(1 / 4 * 100%), 100%);
-    min-width: 40ch;
+    width: clamp(30ch, calc(1 / 4 * 100%), 100%);
+    min-width: 30ch;
     border: 0.5rem solid black;
   }
   
