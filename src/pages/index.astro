@@ -46,18 +46,18 @@ const records = await getRecords('Roster');
 	  
 			<h1>{record.fields.name}</h1>
 	  
-			<p class="emoji">This emjoi best desribes me: {record.fields.emoji}</p>
-			<p class="weird">How am I weird? {record.fields.weird}</p>
-			<p class="superpower">My superpower is: {record.fields.superpower}</p>
-			<p class="karaoke">My karaoke jam is: {record.fields.karaoke}</p>
+			<p class="emoji">This emjoi best desribes me: <span>{record.fields.emoji}</span></p>
+			<p class="weird">How am I weird? <span>{record.fields.weird}</span></p>
+			<p class="superpower">My superpower is: <span>{record.fields.superpower}</span></p>
+			<p class="karaoke">My karaoke jam is: <span>{record.fields.karaoke}</span></p>
 	  
 			<h2>Favorites</h2>
 			<ul>
-			  <li>CSS color name: {record.fields.color}</li>
-			  <li>Software Tool: {record.fields.software}</li>
-			  <li>Fictional Character: {record.fields.character}</li>
-			  <li>Musical Artist: {record.fields.musicalArtist}</li>
-			  <li>Comfort Food: {record.fields.comfortFood}</li>
+			  <li class="color">CSS color name: <span>{record.fields.color}</span></li>
+			  <li class="software">Software Tool: <span>{record.fields.software}</span></li>
+			  <li class="character">Fictional Character: <span>{record.fields.character}</span></li>
+			  <li class="musicalArtist">Musical Artist: <span>{record.fields.musicalArtist}</span></li>
+			  <li class="comfortFood">Comfort Food: <span>{record.fields.comfortFood}</span></li>
 			</ul>
 	  
 		  </figcaption>

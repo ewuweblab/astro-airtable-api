@@ -1,2 +1,11 @@
 /* Your Awesome Styling */
 
+blockquote {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+.emoji span {
+    font-size: 2em;
+}
